@@ -5,6 +5,8 @@ from tkinter import *
 import tkinter.ttk as ttk
 import tkinter.messagebox as mb
 import tkinter.simpledialog as sd
+import Login
+from Login import*
 
 # Connecting to Database
 connector = sqlite3.connect('library.db')
@@ -14,7 +16,7 @@ connector.execute(
 'CREATE TABLE IF NOT EXISTS Library (BK_NAME TEXT, BK_ID TEXT PRIMARY KEY NOT NULL, AUTHOR_NAME TEXT, BK_STATUS TEXT, CARD_ID TEXT)'
 )
 
-# Functions
+# Functions       
 def issuer_card():
 	Cid = sd.askstring('Issuer Card ID', 'What is the Student\'s Card ID?\t\t\t')
 
@@ -127,7 +129,7 @@ def update_record():
 	bk_id_entry.config(state='disable')
 	clear.config(state='disable')
 
-	edit = Button(left_frame, text='Update Record', font=btn_font, bg=btn_hlb_bg, width=20, command=update)
+	edit = Button(left_frame, text='Update Record', font=btn_font, fg="#ffffff", bg=btn_hlb_bg, width=20, command=update)
 	edit.place(x=50, y=375)
 
 
@@ -187,10 +189,10 @@ def change_availability():
 
 
 # Variables
-lf_bg = 'Gray'  # Left Frame Background Color
-rtf_bg = 'Gray'  # Right Top Frame Background Color
+lf_bg = '#333333'  # Left Frame Background Color
+rtf_bg = '#333333'  # Right Top Frame Background Color
 rbf_bg = 'Gray'  # Right Bottom Frame Background Color
-btn_hlb_bg = 'Gray'  # Background color for Head Labels and Buttons
+btn_hlb_bg = '#315257'  # Background color for Head Labels and Buttons
 
 lbl_font = ('Georgia', 13)  # Font for all labels
 entry_font = ('Times New Roman', 12)  # Font for all Entry widgets
@@ -222,33 +224,33 @@ RB_frame = Frame(root)
 RB_frame.place(relx=0.3, rely=0.24, relheight=0.785, relwidth=0.7)
 
 # Left Frame
-Label(left_frame, text='Book Name', bg=lf_bg, font=lbl_font).place(x=98, y=25)
+Label(left_frame, text='Book Name', fg="#ffffff",  bg=lf_bg, font=lbl_font).place(x=98, y=25)
 Entry(left_frame, width=25, font=entry_font, text=bk_name).place(x=45, y=55)
 
-Label(left_frame, text='Book ID', bg=lf_bg, font=lbl_font).place(x=110, y=105)
+Label(left_frame, text='Book ID',  fg="#ffffff", bg=lf_bg, font=lbl_font).place(x=110, y=105)
 bk_id_entry = Entry(left_frame, width=25, font=entry_font, text=bk_id)
 bk_id_entry.place(x=45, y=135)
 
-Label(left_frame, text='Author Name', bg=lf_bg, font=lbl_font).place(x=90, y=185)
+Label(left_frame, text='Author Name', fg="#ffffff", bg=lf_bg, font=lbl_font).place(x=90, y=185)
 Entry(left_frame, width=25, font=entry_font, text=author_name).place(x=45, y=215)
 
-Label(left_frame, text='Status of the Book', bg=lf_bg, font=lbl_font).place(x=75, y=265)
+Label(left_frame, text='Status of the Book', fg="#ffffff", bg=lf_bg, font=lbl_font).place(x=75, y=265)
 dd = OptionMenu(left_frame, bk_status, *['Available', 'Issued'])
 dd.configure(font=entry_font, width=12)
 dd.place(x=75, y=300)
 
-submit = Button(left_frame, text='Add new record', font=btn_font, bg=btn_hlb_bg, width=20, command=add_record)
+submit = Button(left_frame, text='Add new record', font=btn_font, fg="#ffffff", bg=btn_hlb_bg, width=20, command=add_record)
 submit.place(x=50, y=375)
 
-clear = Button(left_frame, text='Clear fields', font=btn_font, bg=btn_hlb_bg, width=20, command=clear_fields)
+clear = Button(left_frame, text='Clear fields',  fg="#ffffff", font=btn_font, bg=btn_hlb_bg, width=20, command=clear_fields)
 clear.place(x=50, y=435)
 
 # Right Top Frame
-Button(RT_frame, text='Delete book record', font=btn_font, bg=btn_hlb_bg, width=17, command=remove_record).place(x=8, y=30)
-Button(RT_frame, text='Delete full inventory', font=btn_font, bg=btn_hlb_bg, width=17, command=delete_inventory).place(x=178, y=30)
-Button(RT_frame, text='Update book details', font=btn_font, bg=btn_hlb_bg, width=17,
+Button(RT_frame, text='Delete book record', font=btn_font, bg=btn_hlb_bg, width=17, fg="#ffffff", command=remove_record).place(x=8, y=30)
+Button(RT_frame, text='Delete full inventory', font=btn_font, bg=btn_hlb_bg, width=17, fg="#ffffff", command=delete_inventory).place(x=178, y=30)
+Button(RT_frame, text='Update book details', font=btn_font, bg=btn_hlb_bg, fg="#ffffff",  width=17,
        command=update_record).place(x=348, y=30)
-Button(RT_frame, text='Change Book Availability', font=btn_font, bg=btn_hlb_bg, width=19,
+Button(RT_frame, text='Change Book Availability', font=btn_font, fg="#ffffff", bg=btn_hlb_bg, width=19,
        command=change_availability).place(x=518, y=30)
 
 # Right Bottom Frame
