@@ -200,9 +200,10 @@ btn_font = ('Gill Sans MT', 13)
 
 # Initializing the main GUI window
 root = Tk()
-root.title('LASS LMS by Busingye David')
+root.title('LASS Library MS')
 root.geometry('1010x530')
 root.resizable(0, 0)
+
 
 Label(root, text='LIBRARY MANAGEMENT SYSTEM', font=("Noto Sans CJK TC", 15, 'bold'), bg=btn_hlb_bg, fg='White').pack(side=TOP, fill=X)
 
@@ -281,6 +282,9 @@ tree.column('#5', width=132, stretch=NO)
 tree.place(y=30, x=0, relheight=0.9, relwidth=1)
 
 clear_and_display()
+
+#Binding the enter key to the entry boxes
+bk_id_entry
 
 # Finalizing the window
 root.update()
