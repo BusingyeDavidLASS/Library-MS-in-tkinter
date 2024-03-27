@@ -4,6 +4,8 @@ from tkinter import ttk
 import sqlite3
 import os
 
+        
+        
 # Function to authenticate user login
 def login():
     username = username_entry.get()
@@ -82,9 +84,9 @@ password_entry = ttk.Entry(frame, show="*", font=("Arial", 16))
 show_password_var = IntVar()
 show_password_check = Checkbutton(frame, text="Show Password", variable=show_password_var, bg='#333333', fg="#315257", font=("Arial", 12), command=toggle_password)
 
-login_button = Button(frame, text="Login", bg="#315257", fg="#FFFFFF", font=("Arial", 16), command=login)
+login_button = Button(frame, text="Login", bg="#315257", fg="#FFFFFF", font=("Arial", 16), command=login,)
 close_button = Button(frame, text="Continue", bg="#315257", fg="#FFFFFF", font=("Arial", 16), command=close_window, state=DISABLED)  # Initially disabled
-signup_link = Button(frame, text="Sign Up", bg="#315257", fg="#FFFFFF", font=("Arial", 16), command=open_signup, state=DISABLED)  # Initially disabled
+signup_link = Button(frame, text="Sign Up", bg="#315257", fg="#FFFFFF", font=("Arial", 16), command=open_signup)
 
 
 # Placing widgets on the screen

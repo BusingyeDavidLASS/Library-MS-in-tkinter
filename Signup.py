@@ -4,8 +4,8 @@ from tkinter import messagebox
 from tkinter import ttk
 
 # Function to create SQLite database
-def create_database():
-    conn = sqlite3.connect('users.db')
+def create_database(db_name):
+    conn = sqlite3.connect(db_name + '.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS users (
                  username TEXT PRIMARY KEY,
@@ -23,8 +23,11 @@ def sign_up(event=None):
         messagebox.showerror("Error", "Please enter both username and password")
         return
 
+    # Create database specific to the username
+    create_database(username)
+
     # Connect to the database
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect(username + '.db')
     c = conn.cursor()
 
     # Check if the username already exists
@@ -58,9 +61,6 @@ window = Tk()
 window.title("Sign Up")
 window.geometry('500x510')
 window.configure(bg='#333333')
-
-# Create SQLite database
-create_database()
 
 # Creating widgets
 frame = Frame(window, bg='#333333')

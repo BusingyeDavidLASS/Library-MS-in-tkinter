@@ -9,7 +9,9 @@ import Login
 from Login import*
 
 # Connecting to Database
-connector = sqlite3.connect('library.db')
+db_name = sd.askstring('Library DB','What is the name of the Library  you want to view?')
+db = (db_name + ".db")
+connector = sqlite3.connect(db)
 cursor = connector.cursor()
 
 connector.execute(
